@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html data-theme="nord" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>POS Warehouse Sales Dashboard</title>
+    <link
+      href="https://cdn.tailwindcss.com?plugins=forms,container-queries"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      .nord-bg-base {
+        background-color: #2e3440;
+      }
+      .nord-bg-surface {
+        background-color: #3b4252;
+      }
+      .nord-bg-highlight {
+        background-color: #434c5e;
+      }
+      .nord-bg-accent {
+        background-color: #4c566a;
+      }
+      .nord-text-base {
+        color: #d8dee9;
+      }
+      .nord-text-subtle {
+        color: #e5e9f0;
+      }
+      .nord-text-strong {
+        color: #eceff4;
+      }
+      .nord-frost-green {
+        color: #8fbcbb;
+      }
+      .nord-frost-blue {
+        color: #88c0d0;
+      }
+      .nord-frost-lightblue {
+        color: #81a1c1;
+      }
+      .nord-frost-darkblue {
+        color: #5e81ac;
+      }
+      .nord-aurora-red {
+        color: #bf616a;
+      }
+      .nord-aurora-orange {
+        color: #d08770;
+      }
+      .nord-aurora-yellow {
+        color: #ebcb8b;
+      }
+      .nord-aurora-green {
+        color: #a3be8c;
+      }
+      .nord-aurora-purple {
+        color: #b48ead;
+      }
+      .nord-border {
+        border-color: #4c566a;
+      }
+      .sidebar-icon-active {
+        background-color: #81a1c1;
+        color: #2e3440;
+      }
+      .sidebar-icon-hover:hover {
+        background-color: #434c5e;
+        color: #eceff4;
+      }
+      .btn-primary-nord {
+        background-color: #5e81ac;
+        color: #eceff4;
+      }
+      .btn-primary-nord:hover {
+        background-color: #81a1c1;
+      }
+      .btn-secondary-nord {
+        background-color: #434c5e;
+        color: #eceff4;
+      }
+      .btn-secondary-nord:hover {
+        background-color: #4c566a;
+      }
+    </style>
+  </head>
+  <body class="nord-bg-base nord-text-base">
+    <div class="flex">
+      <aside
+        class="w-20 nord-bg-surface h-screen flex flex-col items-center py-6 space-y-6 shadow-lg fixed top-0 left-0"
+      >
+        <div class="w-12 h-12 rounded-full flex items-center justify-center">
+          <img
+            alt="POS Warehouse logo"
+            class="w-10 h-10"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtH8CE7ltCv8aIL8UXoiAk9Fpl2cSvYM-sonfGebA1hezqkkFyeu6Le_92JwbpHnL8fDoJ0u5yCIvDAWMip19mpGqycDs0T9kMG8kHDTQcF4qGUUbgA-PwA7ruRxcddLCpSjhMwjLsY0bthbB8dbUYhsyZsRJMaO6YqqkDqgpIP6iw7Ql_6rU_h58R6HcuDgUxrGpyD1D2mJb8zs8l4E6T2R7RMwE_xL7w7Slsa0WnIL6q7HJiTc_HnjygRwkt5Xk5HURX2O_0724"
+          />
+        </div>
+        <button
+          class="p-3 rounded-full sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+        >
+          <span class="material-icons nord-text-subtle">add_circle</span>
+        </button>
+        <nav class="flex flex-col space-y-4 items-center">
+          <a
+            class="p-3 rounded-lg sidebar-icon-active transition-transform duration-300 ease-in-out hover:scale-110"
+            href="#"
+          >
+            <span class="material-icons">home</span>
+          </a>
+          <a
+            class="p-3 rounded-lg sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+            href="#"
+          >
+            <span class="material-icons nord-text-subtle">search</span>
+          </a>
+          <a
+            class="p-3 rounded-lg sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+            href="#"
+          >
+            <span class="material-icons nord-text-subtle">bar_chart</span>
+          </a>
+          <a
+            class="p-3 rounded-lg sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+            href="#"
+          >
+            <span class="material-icons nord-text-subtle">calendar_today</span>
+          </a>
+          <a
+            class="p-3 rounded-lg sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+            href="#"
+          >
+            <span class="material-icons nord-text-subtle">notifications</span>
+          </a>
+        </nav>
+        <div class="mt-auto flex flex-col items-center space-y-4">
+          <button
+            class="p-3 rounded-full sidebar-icon-hover transition-transform duration-300 ease-in-out hover:scale-110"
+          >
+            <span class="material-icons nord-text-subtle">settings</span>
+          </button>
+          <img
+            alt="User avatar"
+            class="w-10 h-10 rounded-full"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyHUvBRb_LTXif3t_dD25tx5G9wT_PoS0Hyp4X_6BVcB5TeaRXXCK8udYXDrsnSDgZacFCSJu3vkFYhLewZVHCKjvrkISk_97wEAtc2HUJCCCZcT1pYBx_RIgSPAnwvBbD0BB-yBPlW7N0Ozc_lEGSJabaXer-rCSrALY9SbKUP65j62fx2IFjaJHpWnqLjY-adukDk-cXeJxsCZb17GN0nlN6UrvyuCiqceN2Rd0JtwFcLCASVBwTdPMfwjKL3bcN6c9-Ge6ZhH0"
+          />
+        </div>
+      </aside>
+      <main class="flex-1 p-8 ml-20">
+        <header
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8"
+        >
+          <div>
+            <h1 class="text-3xl font-semibold nord-text-strong">
+              Hello, Admin 👋
+            </h1>
+            <p class="nord-text-subtle">
+              Welcome to your POS Warehouse Sales Dashboard.
+            </p>
+          </div>
+          <div class="flex items-center space-x-2 sm:space-x-4 mt-4 sm:mt-0">
+            <div class="relative">
+              <select
+                class="select select-bordered nord-bg-accent nord-text-base border-nord-border focus:ring-nord-frost-darkblue focus:border-nord-frost-darkblue w-full max-w-xs"
+              >
+                <option value="all">All Stores</option>
+                <option value="storeA">Store A - Downtown</option>
+                <option value="storeB">Store B - Uptown</option>
+                <option value="storeC">Store C - Suburbia</option>
+              </select>
+            </div>
+            <button class="btn btn-secondary-nord">
+              <span class="material-icons text-sm">filter_list</span>
+              Filters
+            </button>
+            <button class="btn btn-primary-nord">
+              <span class="material-icons text-sm">add</span>
+              New Report
+            </button>
+          </div>
+        </header>
+        <section
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+        >
+          <div class="nord-bg-surface p-6 rounded-xl shadow-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="nord-text-subtle font-medium">Total Revenue</h3>
+              <span class="material-icons nord-aurora-green">trending_up</span>
+            </div>
+            <p class="text-3xl font-semibold nord-text-strong">$45,231.89</p>
+            <p class="text-sm mt-1 nord-aurora-green">+20.1% from last month</p>
+          </div>
+          <div class="nord-bg-surface p-6 rounded-xl shadow-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="nord-text-subtle font-medium">Total Transactions</h3>
+              <span class="material-icons nord-frost-blue">receipt_long</span>
+            </div>
+            <p class="text-3xl font-semibold nord-text-strong">12,345</p>
+            <p class="text-sm mt-1 nord-aurora-green">+5.6% from last month</p>
+          </div>
+          <div class="nord-bg-surface p-6 rounded-xl shadow-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="nord-text-subtle font-medium">Average Order Value</h3>
+              <span class="material-icons nord-aurora-yellow"
+                >attach_money</span
+              >
+            </div>
+            <p class="text-3xl font-semibold nord-text-strong">$36.70</p>
+            <p class="text-sm mt-1 nord-aurora-red">-2.3% from last month</p>
+          </div>
+          <div class="nord-bg-surface p-6 rounded-xl shadow-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="nord-text-subtle font-medium">New Customers</h3>
+              <span class="material-icons nord-aurora-purple">person_add</span>
+            </div>
+            <p class="text-3xl font-semibold nord-text-strong">305</p>
+            <p class="text-sm mt-1 nord-aurora-green">+12% from last month</p>
+          </div>
+        </section>
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <div class="lg:col-span-2 nord-bg-surface p-6 rounded-xl shadow-lg">
+            <div
+              class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4"
+            >
+              <h3 class="text-xl font-semibold nord-text-strong">
+                Sales Overview
+              </h3>
+              <div class="tabs tabs-boxed nord-bg-accent mt-2 sm:mt-0">
+                <a
+                  class="tab tab-active nord-frost-darkblue [--tab-bg:theme(colors.nord3)] [--tab-border-color:theme(colors.nord10)] [--tab-color:theme(colors.nord6)]"
+                  >Day</a
+                >
+                <a class="tab nord-text-subtle hover:text-nord-strong">Week</a>
+                <a class="tab nord-text-subtle hover:text-nord-strong">Month</a>
+              </div>
+            </div>
+            <div
+              class="h-80 nord-bg-highlight rounded-lg flex items-center justify-center"
+            >
+              <p class="nord-text-subtle">Sales Chart Placeholder (Day)</p>
+            </div>
+          </div>
+          <div class="nord-bg-surface p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold nord-text-strong mb-4">
+              Top Selling Products
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <img
+                  alt="Product A image"
+                  class="w-12 h-12 rounded-lg mr-4 object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCudz9zmAs6RnTR3bad8kRJybsVdYV-V-ODu_S_lnK7luyQFTjV-Qv_7I3Rea_d7KhFkj3TJs0qJFp8LxGPBHR4e2YIisxl_h1vEjgWB7a_SLn6L50O4xK6p_6RiJ7-d3ytkBGlRo0vufBKS-juwvuKQUZoq5DpxLXXBdvmhYtlz4D25R-UMn7je-oM94w1FL4tqvJzrGJHukfeBYeC6hximFx6WmW2FWF9MlIiptyUwXajIAfRrA7EAUegfXVtJspK1rrnDKxVA6Y"
+                />
+                <div class="flex-grow">
+                  <p class="font-medium nord-text-base">Product A</p>
+                  <p class="text-sm nord-text-subtle">1,230 units sold</p>
+                </div>
+                <p class="ml-auto font-semibold nord-aurora-green">$15,200</p>
+              </div>
+              <div class="flex items-center">
+                <img
+                  alt="Product B image"
+                  class="w-12 h-12 rounded-lg mr-4 object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvBh4BM9p_ywWQUh1z8ggtwUz6RaIh8P-b0f-Tex_vSnVrokGZHvxiSDKQkgQ7nPUTmTLskdl6WgplkKUNvEbBQgWOlb1Nx7-LIXWNuuJuZMk648G_yIxv6ubn37NOdzA0Sl49-QHn3asAZpTogHeVIzoiHBvXIjQOEuUf9JhMVaPVHhHQFNYSb-COegTGSCcyOYiYbNK49LhzwIVvp5Y-cStcDKedvOZ1Ag08inF983EMH2YXVBJrG8OgQGHOfI-Zm3OAeC-ufuo"
+                />
+                <div class="flex-grow">
+                  <p class="font-medium nord-text-base">Product B</p>
+                  <p class="text-sm nord-text-subtle">980 units sold</p>
+                </div>
+                <p class="ml-auto font-semibold nord-aurora-green">$12,500</p>
+              </div>
+              <div class="flex items-center">
+                <img
+                  alt="Product C image"
+                  class="w-12 h-12 rounded-lg mr-4 object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMtD8YY4ASDk_piKtdlbI8D2Hx9u8cq9sKIhiEM3gdXPueKb-E9m5G0EeXAjBM42czTLQI-ydM9OHsdouAuE7hQB_eZFYPAPIlGFnN7YfvnZcxCfJHSh7quh1clN8Akmablg-8XodG3p_oiDplZINfispcqQ2NPYMaQzrHc3o8S6ia1YrzyuF__Yf4twjJqDU8LDr6x5BYkhOcgyx_GHKOluQf6tbOzanB8qa8I_ieKdw-PCfm8e4rlrgNNjpW_Iz0M1QB6pm-19E"
+                />
+                <div class="flex-grow">
+                  <p class="font-medium nord-text-base">Product C</p>
+                  <p class="text-sm nord-text-subtle">750 units sold</p>
+                </div>
+                <p class="ml-auto font-semibold nord-aurora-green">$9,800</p>
+              </div>
+              <div class="flex items-center">
+                <img
+                  alt="Product D image"
+                  class="w-12 h-12 rounded-lg mr-4 object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVxzWJ_BOANeLuiAWajIdzNIWJooiMfAe2Km175O0MpPfokbE7VtY--EM6yE1KF91N-B33GeteC9G0sX1fCfGKb2V7ds05PgLBdLgTwT1vN6qV7hQZ9pVNNrbkHvyjVOyKyzA8Roik912I4vD7zoQBfrxJ3m7GQs842KSdD7Ps7hgt9NyY7uvAXQMipwvztR6XXImI0lN8SeUkZwZUTk6MVZ1rMz8eOEx5qcz5povsZDGGdPym6bW2isiB4q4xZmGFZ69pm_F3bF0"
+                />
+                <div class="flex-grow">
+                  <p class="font-medium nord-text-base">Product D</p>
+                  <p class="text-sm nord-text-subtle">620 units sold</p>
+                </div>
+                <p class="ml-auto font-semibold nord-aurora-green">$7,100</p>
+              </div>
+              <a
+                class="block text-center text-sm nord-frost-lightblue font-medium hover:underline pt-2"
+                href="#"
+                >View All Products</a
+              >
+            </div>
+          </div>
+        </section>
+        <section class="nord-bg-surface p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-semibold nord-text-strong">
+              Recent Orders
+            </h3>
+            <a
+              class="text-sm nord-frost-lightblue font-medium hover:underline"
+              href="#"
+              >View All Orders</a
+            >
+          </div>
+          <div class="overflow-x-auto">
+            <table class="table w-full">
+              <thead>
+                <tr
+                  class="text-xs nord-text-subtle uppercase border-b nord-border"
+                >
+                  <th class="py-3 px-4 bg-transparent">Order ID</th>
+                  <th class="py-3 px-4 bg-transparent">Customer</th>
+                  <th class="py-3 px-4 bg-transparent">Date</th>
+                  <th class="py-3 px-4 bg-transparent">Store</th>
+                  <th class="py-3 px-4 bg-transparent">Amount</th>
+                  <th class="py-3 px-4 bg-transparent">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y nord-border">
+                <tr
+                  class="text-sm nord-text-base hover:bg-nord-highlight transition-colors duration-150"
+                >
+                  <td class="py-3 px-4">#ORD001</td>
+                  <td class="py-3 px-4">John Doe</td>
+                  <td class="py-3 px-4">2023-10-26</td>
+                  <td class="py-3 px-4">Store A</td>
+                  <td class="py-3 px-4">$120.50</td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="badge badge-success bg-nord-aurora-green text-nord0 border-nord-aurora-green"
+                      >Completed</span
+                    >
+                  </td>
+                </tr>
+                <tr
+                  class="text-sm nord-text-base hover:bg-nord-highlight transition-colors duration-150"
+                >
+                  <td class="py-3 px-4">#ORD002</td>
+                  <td class="py-3 px-4">Jane Smith</td>
+                  <td class="py-3 px-4">2023-10-26</td>
+                  <td class="py-3 px-4">Store B</td>
+                  <td class="py-3 px-4">$85.00</td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="badge badge-warning bg-nord-aurora-yellow text-nord0 border-nord-aurora-yellow"
+                      >Pending</span
+                    >
+                  </td>
+                </tr>
+                <tr
+                  class="text-sm nord-text-base hover:bg-nord-highlight transition-colors duration-150"
+                >
+                  <td class="py-3 px-4">#ORD003</td>
+                  <td class="py-3 px-4">Mike Johnson</td>
+                  <td class="py-3 px-4">2023-10-25</td>
+                  <td class="py-3 px-4">Store A</td>
+                  <td class="py-3 px-4">$250.75</td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="badge badge-success bg-nord-aurora-green text-nord0 border-nord-aurora-green"
+                      >Completed</span
+                    >
+                  </td>
+                </tr>
+                <tr
+                  class="text-sm nord-text-base hover:bg-nord-highlight transition-colors duration-150"
+                >
+                  <td class="py-3 px-4">#ORD004</td>
+                  <td class="py-3 px-4">Sarah Brown</td>
+                  <td class="py-3 px-4">2023-10-25</td>
+                  <td class="py-3 px-4">Store C</td>
+                  <td class="py-3 px-4">$45.20</td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="badge badge-error bg-nord-aurora-red text-nord0 border-nord-aurora-red"
+                      >Cancelled</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>

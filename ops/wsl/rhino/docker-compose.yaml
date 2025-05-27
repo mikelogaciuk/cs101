@@ -1,0 +1,8 @@
+services:
+  rhino-wsl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags: [rhino-wsl]
+    image: rhino-wsl
+    container_name: rhino-wsl
